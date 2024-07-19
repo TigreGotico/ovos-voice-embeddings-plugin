@@ -45,6 +45,8 @@ def required(requirements_file):
                 if pkg.strip() and not pkg.startswith("#")]
 
 
+PLUGIN_ENTRY_POINT = 'ovos-voice-embeddings-plugin=ovos_voice_embeddings:VoiceEmbeddingsRecognitionPlugin'
+
 setup(
     name='ovos-voice-embeddings-plugin',
     version=get_version(),
@@ -56,6 +58,7 @@ setup(
     packages=['ovos_voice_embeddings'],
     zip_safe=True,
     keywords='OVOS openvoiceos plugin voice recognition',
+    entry_points={'opm.embeddings.voice': PLUGIN_ENTRY_POINT},
     install_requires=required("requirements.txt"),
     long_description=long_desc,
     long_description_content_type='text/markdown'
