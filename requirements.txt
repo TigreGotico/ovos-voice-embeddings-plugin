@@ -1,0 +1,4 @@
+ovos-plugin-manager
+numpy
+chromadb
+resemblyzer
