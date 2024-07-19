@@ -49,7 +49,7 @@ setup(
     name='ovos-voice-embeddings-plugin',
     version=get_version(),
     description='A voice recognition plugin for OVOS',
-    url='https://github.com/JarbasHiveMind/ovos-voice-embeddings-plugin',
+    url='https://github.com/TigreGotico/ovos-voice-embeddings-plugin',
     author='jarbasai',
     author_email='jarbasai@mailfence.com',
     license='MIT',
