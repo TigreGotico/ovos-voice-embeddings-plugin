@@ -1,6 +1,8 @@
 # VoiceEmbeddingsRecognitionPlugin
 
-The `VoiceEmbeddingsRecognitionPlugin` is a plugin for recognizing and managing voice embeddings. It uses the `VoiceEmbeddingsRecognizer` class from the `ovos_plugin_manager` template and integrates with the `ChromaEmbeddingsDB` for storing and retrieving voice embeddings. This plugin also leverages the `resemblyzer` library to generate voice embeddings and the `speech_recognition` library to handle audio data.
+The `VoiceEmbeddingsRecognitionPlugin` is a plugin for recognizing and managing voice embeddings.
+
+It uses [Resemblyzer](https://github.com/resemble-ai/Resemblyzer) to extract speaker embeddings and integrates with  [ovos-chromadb-embeddings-plugin](https://github.com/TigreGotico/ovos-chromadb-embeddings-plugin) for storing and retrieving voice embeddings. 
 
 ## Features
 
