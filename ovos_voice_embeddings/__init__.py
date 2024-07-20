@@ -1,14 +1,11 @@
 import numpy as np
-from ovos_chromadb_embeddings import ChromaEmbeddingsDB
-from ovos_plugin_manager.templates.embeddings import VoiceEmbeddingsStore
+from ovos_plugin_manager.templates.embeddings import VoiceEmbeddingsStore, EmbeddingsDB
 from resemblyzer import VoiceEncoder, preprocess_wav
 from speech_recognition import Recognizer, AudioFile, AudioData
 
 
 class VoiceEmbeddingsRecognitionPlugin(VoiceEmbeddingsStore):
-    def __init__(self, thresh: float = 0.75):
-        path = "/tmp/voice_db"  # TODO
-        db = ChromaEmbeddingsDB(path)
+    def __init__(self, db: EmbeddingsDB, thresh: float = 0.75):
         super().__init__(db, thresh)
         self.encoder = VoiceEncoder()
 
@@ -23,8 +20,10 @@ class VoiceEmbeddingsRecognitionPlugin(VoiceEmbeddingsStore):
 
 if __name__ == "__main__":
     # Example usage:
-
-    v = VoiceEmbeddingsRecognitionPlugin()
+    from ovos_chromadb_embeddings import ChromaEmbeddingsDB
+    path = "/tmp/voice_db"
+    db = ChromaEmbeddingsDB(path)
+    v = VoiceEmbeddingsRecognitionPlugin(db)
 
     a = "/home/miro/PycharmProjects/ovos-user-id/2609-156975-0001.flac"
     b = "/home/miro/PycharmProjects/ovos-user-id/qCCWXoCURKY.mp3"
