@@ -19,10 +19,10 @@ Here is a quick example of how to use the `VoiceEmbeddingsRecognitionPlugin`:
 from ovos_voice_embeddings import VoiceEmbeddingsRecognitionPlugin
 from resemblyzer import preprocess_wav
 from speech_recognition import Recognizer, AudioFile
+from ovos_chromadb_embeddings import ChromaEmbeddingsDB
 
-# Example usage:
-
-v = VoiceEmbeddingsRecognitionPlugin()
+db = ChromaEmbeddingsDB("./voice_db")
+v = VoiceEmbeddingsRecognitionPlugin(db)
 
 a = "/home/miro/PycharmProjects/ovos-user-id/2609-156975-0001.flac"
 b = "/home/miro/PycharmProjects/ovos-user-id/qCCWXoCURKY.mp3"
