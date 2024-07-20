@@ -1,11 +1,24 @@
+import os
+from typing import Optional
+
 import numpy as np
+from ovos_chromadb_embeddings import ChromaEmbeddingsDB
+from ovos_config.locations import get_xdg_cache_save_path
 from ovos_plugin_manager.templates.embeddings import VoiceEmbeddingsStore, EmbeddingsDB
+from ovos_utils.log import LOG
 from resemblyzer import VoiceEncoder, preprocess_wav
 from speech_recognition import Recognizer, AudioFile, AudioData
 
 
 class VoiceEmbeddingsRecognitionPlugin(VoiceEmbeddingsStore):
-    def __init__(self, db: EmbeddingsDB, thresh: float = 0.75):
+    def __init__(self, db: Optional[EmbeddingsDB] = None, thresh: float = 0.75):
+        if db is None:
+            db_path = get_xdg_cache_save_path("chromadb")
+            os.makedirs(db_path, exist_ok=True)
+            db_path = f"{db_path}/resemblyzer_voice_prints"
+            LOG.info(f"Using chromadb as voice embeddings store: {db_path}")
+            db = ChromaEmbeddingsDB(db_path)
+
         super().__init__(db, thresh)
         self.encoder = VoiceEncoder()
 
@@ -20,10 +33,7 @@ class VoiceEmbeddingsRecognitionPlugin(VoiceEmbeddingsStore):
 
 if __name__ == "__main__":
     # Example usage:
-    from ovos_chromadb_embeddings import ChromaEmbeddingsDB
-    path = "/tmp/voice_db"
-    db = ChromaEmbeddingsDB(path)
-    v = VoiceEmbeddingsRecognitionPlugin(db)
+    v = VoiceEmbeddingsRecognitionPlugin()
 
     a = "/home/miro/PycharmProjects/ovos-user-id/2609-156975-0001.flac"
     b = "/home/miro/PycharmProjects/ovos-user-id/qCCWXoCURKY.mp3"

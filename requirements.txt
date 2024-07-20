@@ -1,4 +1,4 @@
 ovos-plugin-manager
 numpy
-chromadb
+ovos-chromadb-embeddings-plugin
 resemblyzer
