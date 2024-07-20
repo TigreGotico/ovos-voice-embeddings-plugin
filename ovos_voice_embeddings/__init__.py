@@ -1,11 +1,11 @@
 import numpy as np
 from ovos_chromadb_embeddings import ChromaEmbeddingsDB
-from ovos_plugin_manager.templates.embeddings import VoiceEmbeddingsRecognizer
+from ovos_plugin_manager.templates.embeddings import VoiceEmbeddingsStore
 from resemblyzer import VoiceEncoder, preprocess_wav
 from speech_recognition import Recognizer, AudioFile, AudioData
 
 
-class VoiceEmbeddingsRecognitionPlugin(VoiceEmbeddingsRecognizer):
+class VoiceEmbeddingsRecognitionPlugin(VoiceEmbeddingsStore):
     def __init__(self, thresh: float = 0.75):
         path = "/tmp/voice_db"  # TODO
         db = ChromaEmbeddingsDB(path)
