@@ -37,7 +37,7 @@ v.add_voice("donald", wav)
 
 wav = preprocess_wav(b2)
 print(v.predict(wav))
-print(v.query(wav))
+print(v.prompt(wav))
 
 ```
 
