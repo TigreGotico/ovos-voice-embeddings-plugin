@@ -1,19 +1,23 @@
 # VoiceEmbeddingsRecognitionPlugin
 
-The `VoiceEmbeddingsRecognitionPlugin` is a plugin for recognizing and managing voice embeddings.
-
-It uses [Resemblyzer](https://github.com/resemble-ai/Resemblyzer) to extract speaker embeddings and integrates with  [ovos-chromadb-embeddings-plugin](https://github.com/TigreGotico/ovos-chromadb-embeddings-plugin) for storing and retrieving voice embeddings. 
+`VoiceEmbeddingsRecognitionPlugin` recognizes and manages voice embeddings for OVOS. It uses [Resemblyzer](https://github.com/resemble-ai/Resemblyzer) to extract speaker embeddings from audio, and it stores and retrieves those embeddings with [ovos-chromadb-embeddings-plugin](https://github.com/TigreGotico/ovos-chromadb-embeddings-plugin).
 
 ## Features
 
-- **Voice Embeddings Extraction**: Converts audio data into voice embeddings using the `VoiceEncoder` from `resemblyzer`.
-- **Voice Data Storage**: Stores and retrieves voice embeddings using `ChromaEmbeddingsDB`.
-- **Voice Data Management**: Allows for adding, querying, and predicting voice embeddings associated with user IDs.
-- **Supports Multiple Audio Formats**: Can handle audio data in various formats, including `wav` and `flac`.
+- **Voice embeddings extraction**: converts audio data into voice embeddings with the `VoiceEncoder` from `resemblyzer`.
+- **Voice data storage**: stores and retrieves voice embeddings with `ChromaEmbeddingsDB`.
+- **Voice data management**: adds, queries, and predicts voice embeddings for user IDs.
+- **Multiple audio formats**: handles audio data in formats that include `wav` and `flac`.
+
+## Install
+
+```bash
+pip install ovos-voice-embeddings-plugin
+```
 
 ## Usage
 
-Here is a quick example of how to use the `VoiceEmbeddingsRecognitionPlugin`:
+This example enrolls two voices, then identifies a third audio sample against them.
 
 ```python
 from ovos_voice_embeddings import VoiceEmbeddingsRecognitionPlugin
@@ -41,3 +45,11 @@ print(v.prompt(wav))
 
 ```
 
+## Related projects
+
+- [ovos-chromadb-embeddings-plugin](https://github.com/TigreGotico/ovos-chromadb-embeddings-plugin) — the ChromaDB-backed embeddings store this plugin uses.
+- [ovos-user-id](https://github.com/TigreGotico/ovos-user-id) — multi-user identity layer for OVOS. It uses this plugin as its voice recognizer for authentication.
+
+## License
+
+MIT.
