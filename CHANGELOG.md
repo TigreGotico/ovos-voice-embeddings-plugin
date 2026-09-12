@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.0.1a1](https://github.com/TigreGotico/ovos-voice-embeddings-plugin/tree/0.0.1a1) (2026-09-12)
+
+[Full Changelog](https://github.com/TigreGotico/ovos-voice-embeddings-plugin/compare/0.0.0a0...0.0.1a1)
+
+**Merged pull requests:**
+
+- fix: port to the VoiceEmbedder template, pyproject packaging, licence, CI and real tests [\#4](https://github.com/TigreGotico/ovos-voice-embeddings-plugin/pull/4) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+- docs: rewrite README in Simplified Technical English [\#3](https://github.com/TigreGotico/ovos-voice-embeddings-plugin/pull/3) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.0.0a0](https://github.com/TigreGotico/ovos-voice-embeddings-plugin/tree/0.0.0a0) (2024-10-25)
+
+[Full Changelog](https://github.com/TigreGotico/ovos-voice-embeddings-plugin/compare/0.0.0a2...0.0.0a0)
+
 ## [0.0.0a2](https://github.com/TigreGotico/ovos-voice-embeddings-plugin/tree/0.0.0a2) (2024-10-25)
 
 [Full Changelog](https://github.com/TigreGotico/ovos-voice-embeddings-plugin/compare/532f12ff86560bbb798f7f167ea56358a39f39ae...0.0.0a2)
