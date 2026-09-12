@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ovos-voice-embeddings-plugin"
+dynamic = ["version"]
+description = "OVOS voice embeddings plugin: speaker embeddings with speakeronnx"
+license = {text = "Apache-2.0"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+authors = [{name = "JarbasAI", email = "jarbasai@mailfence.com"}]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "speakeronnx",
+    "ovos-plugin-manager>=2.12.0a1",
+    "ovos-utils",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "soundfile",
+]
+
+[project.entry-points."opm.embeddings.voice"]
+ovos-voice-embeddings-plugin = "ovos_voice_embeddings:SpeakerOnnxVoiceEmbedder"
+
+[project.urls]
+Homepage = "https://github.com/TigreGotico/ovos-voice-embeddings-plugin"
+
+[tool.setuptools.dynamic]
+version = {attr = "ovos_voice_embeddings.version.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ovos_voice_embeddings*"]

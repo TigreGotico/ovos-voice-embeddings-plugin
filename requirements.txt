@@ -1,4 +1,0 @@
-ovos-plugin-manager
-numpy
-ovos-chromadb-embeddings-plugin
-resemblyzer
